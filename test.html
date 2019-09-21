@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- 
+// Author : Oleg Samsonov
+// Date   : 13.07.2019
+-->
+
+<html>
+	<head>
+		<script>
+			function checkValidNumber() {
+				var x, text;
+
+				// Get the value of the input field with id="numb"
+				x = document.getElementById("numb").value;
+
+				// If x is Not a Number or less than one or greater than 10
+				if (isNaN(x) || x < 1 || x > 1000) {
+				    text = "Input not valid";
+				} else {
+				    text = "Input OK";
+				}
+				document.getElementById("demo0").innerHTML = text;
+			}	
+			function showInputText(){
+				var input_text;
+
+				input_text = document.getElementById("textForm").value;
+
+				document.getElementById("demo1").innerHTML = input_text;
+			}
+			function printElem() {
+
+				var print_option = document.getElementById("printoption").value;
+
+				if(print_option == "text") {
+					var divId = "div1"
+				    var content = document.getElementById(divId).innerHTML;
+				    var mywindow = window.open('', 'Print', 'height=600,width=800');
+
+				    mywindow.document.write('<html><head><title>Print</title>');
+				    mywindow.document.write('</head><body >');
+				    mywindow.document.write(content);
+				    mywindow.document.write('</body></html>');
+
+				    mywindow.document.close();
+				    mywindow.focus()
+				    mywindow.print();
+				    mywindow.close();
+				}
+				else{
+					window.print();
+				}
+				
+			    return true;
+			}		
+		</script>
+
+		<style>
+			body {background-color: powderblue;}
+			h1   {color: blue;}
+			p    {color: red;}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="div1">
+
+			<h1>Printing of website</h1>
+		
+			<h2>JavaScript Can Validate Input</h2>
+
+			<p>Please input a number between 1 and 1000:</p>
+
+			<input id="numb">
+
+			<button type="button" onclick="checkValidNumber()">Submit</button>
+
+			<p id="demo0"></p>
+
+			<p>Please type your opinion about the printing page.</p>
+
+			<input id="textForm">
+
+			<button type="button" onclick="showInputText()">Submit</button>
+
+			<p id="demo1"></p>
+
+			<img src="pic_trulli.jpg" alt="Trulli" width="800" height="533">
+
+			<p>Click "Print" to print the webpage using the PDF type.</p>
+		</div>
+
+
+		<select id="printoption">
+		    <option value="text">Text Only</option>		    
+		    <option value="all">All of the page</option>
+  		</select>
+
+		<button onclick="printElem()">Print</button>
+
+		<p id="demo"></p>
+
+	</body>
+</html>
+

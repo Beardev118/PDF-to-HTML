@@ -1,0 +1,1 @@
+https://stackoverflow.com/search?q=how+to+print+html+tag+in+javascript
